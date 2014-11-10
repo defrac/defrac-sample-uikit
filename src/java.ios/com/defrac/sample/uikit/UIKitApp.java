@@ -1,6 +1,6 @@
 package com.defrac.sample.uikit;
 
-import static cocoa.touch.uikit.UIApplications.UIApplicationMain;
+import static defrac.ios.uikit.UIKit.applicationMain;
 
 public class UIKitApp {
   public static void main(String[] args) {
@@ -10,6 +10,6 @@ public class UIKitApp {
     //
     // This app is a direct translation of the following tutorial:
     //   https://medium.com/on-coding/67cc41319bd8
-    UIApplicationMain(args, null, UIKitSampleDelegate.class);
+    applicationMain(args, null, UIKitSampleDelegate.class);
   }
 }

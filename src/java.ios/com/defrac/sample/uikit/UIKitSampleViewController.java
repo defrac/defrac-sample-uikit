@@ -1,7 +1,8 @@
 package com.defrac.sample.uikit;
 
-import cocoa.coreGraphics.CGRect;
-import cocoa.touch.uikit.*;
+import defrac.dni.SEL;
+import defrac.ios.coregraphics.CGRect;
+import defrac.ios.uikit.*;
 
 public class UIKitSampleViewController extends UIViewController implements Runnable {
   private UITextField textField;
@@ -18,14 +19,14 @@ public class UIKitSampleViewController extends UIViewController implements Runna
   public void viewDidLoad() {
     super.viewDidLoad();
 
-    textField = UITextField.alloc().initWithFrame(CGRect.make(10.0f, 30.0f, 300.0f, 30.0f));
-    textField.borderStyle = UITextBorderStyle.RoundedRect;
+    textField = new UITextField(CGRect.make(10.0f, 30.0f, 300.0f, 30.0f));
+    textField.borderStyle = UITextField.TextBorderStyle.ROUNDED_RECT;
     textField.delegate = delegate;
     view.addSubview(textField);
 
-    UIButton button = UIButton.buttonWithType(UIButtonType.RoundedRect);
+    UIButton button = (UIButton)UIButton.buttonWithType(UIButton.Type.ROUNDED_RECT);
     button.frame = CGRect.make(110.0f, 200.0f, 100.0f, 30.0f);
-    button.setTitle("Press Me!", UIControlState.Normal);
+    button.setTitleForState("Press Me!", UIControl.State.NORMAL);
     view.addSubview(button);
 
     // There are multiple options when adding a callback.
@@ -34,11 +35,12 @@ public class UIKitSampleViewController extends UIViewController implements Runna
     // method that accepts a Runnable and does everything for you.
     //
     // The version using SEL:
-    // button.addTarget(this, SEL.of("buttonPressed"), UIControlEvents.TouchUpInside);
+    button.addTargetActionForControlEvents(
+        this, SEL.of("buttonPressed"), UIControl.ControlEvents.TOUCH_UP_INSIDE);
     //
-    button.addTarget(this, UIControlEvents.TouchUpInside);
+    //button.addTarget(this, UIControlEvents.TouchUpInside);
 
-    label = UILabel.alloc().initWithFrame(CGRect.make(115.0f, 150.0f, 200.0f, 30.0f));
+    label = new UILabel(CGRect.make(115.0f, 150.0f, 200.0f, 30.0f));
     label.text = "Hello World!";
     view.addSubview(label);
   }
