@@ -1,12 +1,14 @@
 {
   "name": "UIKit Sample",
-  "package": "com.defrac.sample",
-  "identifier": "uikit",
-  "main": "com.defrac.sample.uikit.UIKitApp",
+  "package": "com.defrac.sample.uikit",
   "version": "1.0",
+
+  "main": "com.defrac.sample.uikit.UIKitApp",
+
   "targets": [
     "ios"
   ],
+
   "ios": {
     "debug": false,
     "strictMode": false
